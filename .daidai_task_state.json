@@ -1,0 +1,8 @@
+{
+  "task": "voice-ops-sealos-demo",
+  "phase": "record",
+  "step": "verified",
+  "status": "complete",
+  "updated_at": "2026-08-18T17:35:00+08:00",
+  "summary": "Sealos 单容器可行性 Demo 已实现并完成本地 HTTP 验证"
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>语音机器人运营 AI 检测平台 · Demo</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">VOICE OPS · SEALOS FEASIBILITY DEMO</div>
+        <h1>语音机器人运营 AI 检测平台</h1>
+        <p class="muted">话后助手质检结果 · 项目隔离看板 · Badcase 调优入口</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="demo-badge">统一登录 · Demo</span>
+        <button id="refresh-button" class="button secondary">刷新数据</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="control-card">
+        <div>
+          <label for="project-select">当前项目</label>
+          <select id="project-select"></select>
+        </div>
+        <div id="project-description" class="project-description"></div>
+        <div class="source-note">数据来源：话后助手 HTTP 推送（Demo 已预置样例）</div>
+      </section>
+
+      <section id="metric-cards" class="metric-grid" aria-label="项目概览"></section>
+
+      <section class="content-grid">
+        <div class="panel calls-panel">
+          <div class="panel-heading">
+            <div>
+              <div class="eyebrow">CALL REVIEWS</div>
+              <h2>通话质检记录</h2>
+            </div>
+            <span id="call-count-label" class="muted"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>时间</th><th>通话 ID</th><th>意图</th><th>任务状态</th><th>情绪</th><th>投诉</th></tr></thead>
+              <tbody id="calls-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="panel badcase-panel">
+          <div class="panel-heading">
+            <div>
+              <div class="eyebrow">TUNING QUEUE</div>
+              <h2>Badcase 排队</h2>
+            </div>
+            <span class="pill danger">人工验收入口</span>
+          </div>
+          <div id="badcases-list" class="stack-list"></div>
+        </aside>
+      </section>
+
+      <section class="panel detail-panel">
+        <div class="panel-heading">
+          <div>
+            <div class="eyebrow">POSTCALL ANALYSIS</div>
+            <h2 id="detail-title">选择一条通话查看详情</h2>
+          </div>
+          <span id="detail-meta" class="muted"></span>
+        </div>
+        <div id="detail-empty" class="empty-state">左侧选择通话后，这里会展开“指标命中 / 分析原因 / 证据 / 智能体优化建议”、红线和 Badcase。</div>
+        <div id="detail-content" class="detail-content hidden">
+          <div class="detail-columns">
+            <div>
+              <h3>本通话指标</h3>
+              <div id="call-facts" class="fact-grid"></div>
+              <h3>质检指标</h3>
+              <div id="quality-list" class="stack-list"></div>
+            </div>
+            <div>
+              <h3>红线 / 异常</h3>
+              <div id="redline-list" class="stack-list"></div>
+              <h3>Badcase 与调优建议</h3>
+              <div id="detail-badcases" class="stack-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>Demo 目的：验证部署、入库、隔离、展示链路；生产环境需补充真实认证、权限、审计、消息推送与高可用数据库。</footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

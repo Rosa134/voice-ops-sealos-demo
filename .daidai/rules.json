@@ -1,0 +1,12 @@
+{
+  "project_type": "code",
+  "language": "zh-CN",
+  "runtime": "python-stdlib",
+  "port": 8080,
+  "data_dir": "/data",
+  "scope": "prototype",
+  "do_not_touch": [
+    "D:/语音机器人项目/docs",
+    "D:/语音机器人项目/打包文件"
+  ]
+}

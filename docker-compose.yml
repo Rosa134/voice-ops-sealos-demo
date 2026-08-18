@@ -1,0 +1,13 @@
+services:
+  voice-ops-demo:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      DATA_DIR: /data
+    volumes:
+      - voice_ops_data:/data
+
+volumes:
+  voice_ops_data:
